@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { Routes, Link, useNavigate } from 'react-router-dom';
 
 //images
-import { ReactComponent as HomeIcon } from '../icons/home.svg';
-import { ReactComponent as MessagesIcon } from '../icons/messages.svg';
-import { ReactComponent as PostIcon } from '../icons/post.svg';
-import { ReactComponent as ExploreIcon } from '../icons/explore.svg';
-import { ReactComponent as LikesIcon } from '../icons/likes.svg';
+
+import {
+  SearchIcon,
+  HomeIcon,
+  MessagesIcon,
+  PostIcon,
+  ExploreIcon,
+  LikesIcon,
+} from '../icons/Icons';
 import profile from '../images/profile.png';
 import logo from '../images/logo.png';
-import { ReactComponent as SearchIcon } from '../icons/search_icon.svg';
 
 function NavigationBar() {
   const [dropdownShow, setDropdownShow] = useState(false);

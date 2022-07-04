@@ -32,23 +32,20 @@ function LoginPage() {
         })
       );
   }
+
   function handleInputChange(event) {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   }
 
   function checkValidity() {
+    const REGEX_EMAIL =
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+    const REGEX_PW =
+      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()\-=_+[\]\\;',./{}|:"<>?`~]).{8,}$/;
     setUserInputValid({
-      id:
-        user.id &&
-        user.id.match(
-          /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-        ),
-      pw:
-        user.pw &&
-        user.pw.match(
-          /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$%^&*()\-=_+[\]\\;',./{}|:"<>?`~]).{8,}$/
-        ),
+      id: user.id && user.id.match(REGEX_EMAIL),
+      pw: user.pw && user.pw.match(REGEX_PW),
     });
   }
 
